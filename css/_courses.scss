@@ -1,0 +1,60 @@
+
+.courseContainer {
+    position: absolute;
+    top: 6em;
+    width: 70%;
+    left: 15%;
+    color: black;
+    position: relative;
+
+    section {
+        table {
+            position: relative;
+            font-family: arial, sans-serif;
+            left: 0%;
+            border-collapse: collapse;
+            width: 100%;
+            border-spacing:0;
+            background: white;
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+            border-radius: 2px;
+            border-style: solid;
+            border-width: 1px;
+            text-align: center;
+            td,th {
+                padding: 12px 15px;
+            }
+
+            th {
+                background: blue;
+                color:white;
+                text-transform: uppercase;
+            }
+            tr:nth-child(odd){
+        
+                background-color: #eeeeee;
+            }
+        }
+        .addButton {
+            position: absolute;
+            bottom: -4em;
+            left: 87%;
+            width: 13%;
+            display: block;
+            text-align: center;
+            a {
+                position: relative;
+                padding: 9px 8px 9px 16px;
+                text-decoration: none;
+                text-align: center;
+                color: white;
+                font-size: 20px;
+                display: block;
+                background-color: rgba(0, 0, 255, 0.87);
+            }
+        }
+    }
+    a:hover {
+        background-color: rgb(0, 0, 255);
+    }
+}

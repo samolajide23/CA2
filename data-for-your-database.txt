@@ -1,50 +1,92 @@
-
+DROP DATABASE IF EXISTS ca2database;
+CREATE DATABASE ca2database;
 --
--- Table structure for table `records`
+-- Table structure for table `users`
 --
 
-CREATE TABLE `records` (
-  `recordID` int(11) NOT NULL,
+DROP TABLE IF EXISTS users; 
+CREATE TABLE `users` ( 
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `username` varchar(255) NOT NULL, 
+    `email` varchar(255) NOT NULL, 
+    `password` varchar(255) NOT NULL,
+     PRIMARY KEY (id) 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+INSERT INTO `users` ( `username`, `email`, `password`)
+ VALUES
+( 'admin', 'admin', 'admin'),
+( 'test', 'test', 'test');
+--
+-- Dumping data for table `records`
+--
+
+DROP TABLE IF EXISTS records; 
+CREATE TABLE `records` ( 
+    `recordID` int(11) NOT NULL AUTO_INCREMENT, 
+    `categoryID` int(11) NULL, 
+    `courseCode` varchar(11) NOT NULL,
+    `courseName` varchar(255) NOT NULL, 
+    `level` int(11) NULL, 
+    `years` int(11) NOT NULL,
+     PRIMARY KEY (recordID)  
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `records` (`categoryID`, `courseCode`, `courseName`, `level`, `years`)
+ VALUES
+( '1', 'AL701', ' Computer Engineering for Network Infrastructure ', '7', '3'),
+( '1', 'AL702', ' Software Design in Artificial Intelligence for Cloud Computing ', '7', '3'),
+( '1', 'CR118', ' Computer Science in software Development ', '8', '4'),
+( '1', 'DK821', ' Computer Science in software Engineering ', '7', '3'),
+( '1', 'AL701', ' Psychology and Computing ', '7', '3'),
+( '1', 'AL702', ' Software Development ', '7', '3'),
+( '1', 'CR118', ' Computer Science in software Development ', '8', '4'),
+( '1', 'DK821', ' Computer Development ', '7', '3'),
+( '1', 'AL642', ' Computer Systems ', '7', '3'),
+( '1', 'AL856', ' Software Systems ', '8', '4'),
+( '1', 'CR524', ' Computer Science in software Development ', '8', '4'),
+( '1', 'DK843', ' Computer Science in software Engineering ', '8', '3'),
+
+( '2', 'DO123', ' Business Infortmations ', '8', '4'),
+( '2', 'CW206', ' Information Technology ', '7', '4'),
+( '2', 'DK463', ' Cybercrime and IT Security ', '8', '3'),
+( '2', 'CW206', ' Information Technology ', '7', '4'),
+( '2', 'DK463', ' Cybercrime and IT Security ', '8', '3'),
+( '2', 'DO123', ' IT Management ', '8', '4'),
+( '2', 'CW206', ' International Business ', '7', '4'),
+( '2', 'DK463', ' Business ', '8', '3'),
+( '2', 'CW206', ' Commmerce ', '7', '4'),
+( '2', 'DK463', ' Business Information Systems ', '8', '3'),
+( '2', 'DO123', ' Business Infortmations ', '8', '4'),
+( '2', 'CW206', ' Information Technology ', '7', '4'),
+( '2', 'DK463', ' Cybercrime and IT Security ', '8', '3'),
+( '2', 'CW206', ' Information Technology ', '7', '4'),
+( '2', 'DK463', ' Cybercrime and IT Security ', '8', '3'),
+
+( '3', 'DK123', ' Science ', '8', '4'),
+( '3', 'DK624', ' Social Sciences ', '7', '4'),
+( '3', 'DK453', ' Forensics ', '8', '3'),
+( '3', 'DK123', ' Applied Science ', '8', '4'),
+( '3', 'DK624', ' Nutrition and Health Sciences ', '7', '4'),
+( '3', 'DK453', ' Pharmaceutical Science ', '8', '3'),
+( '3', 'DK123', ' Science ', '8', '4'),
+( '3', 'DK624', ' Farm Sciences ', '7', '4'),
+( '3', 'DK453', ' Forensics ', '8', '3'),
+( '3', 'DK123', ' Science ', '8', '4'),
+( '3', 'DK624', ' Digital Sciences ', '7', '4'),
+( '3', 'DK453', ' Chemisty ', '8', '3'),
+( '3', 'AL167', ' Chemical and Medical Information ', '7', '3');
+
+CREATE TABLE `categories` (
   `categoryID` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `price` decimal(10,2) NOT NULL,
-  `image` varchar(255) NOT NULL
+  `categoryName` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `records`
 --
-
-INSERT INTO `records` (`recordID`, `categoryID`, `name`, `price`, `image`) VALUES
-(1, 1, 'Some text', '12.00', '644471.jpg'),
-(2, 1, 'Some text', '15.00', '233012.jpg'),
-(3, 1, 'Some text', '18.00', '329484.jpg'),
-(4, 1, 'Some text', '10.00', '644055.jpg'),
-(5, 2, 'Some text', '16.00', '373465.jpg'),
-(6, 2, 'Some text', '19.00', '373989.jpg'),
-(7, 2, 'Some text', '12.00', '374104.jpg'),
-(8, 2, 'Some text', '10.00', '4733.jpg'),
-(9, 2, 'Some text', '15.00', '834551.jpg'),
-(10, 3, 'Some text', '13.00', '908783.jpg'),
-(11, 3, 'Some text', '17.00', '835545.jpg'),
-(12, 3, 'Some text', '19.00', '119273.jpg');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `records`
---
-ALTER TABLE `records`
-  ADD PRIMARY KEY (`recordID`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `records`
---
-ALTER TABLE `records`
-  MODIFY `recordID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+INSERT INTO `categories` (`categoryID`, `categoryName`) VALUES
+(1, 'Computing'),
+(2, 'Business'),
+(3, 'Science');

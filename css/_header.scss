@@ -1,0 +1,44 @@
+/* Here is where header styles start */
+.nav-container {
+  width: 100%;
+  background-color: $mainColor;
+  .navbar {
+    height: 80px;
+    width: 100%;
+    #navbar-logo {
+      position: absolute;
+      top: 0.6em;
+      color: $white;
+      left: 2em;
+      cursor: pointer;
+    }
+    .sidenav {
+      position: absolute;
+      top: 1.6em;
+      left: 20%;
+      z-index: 1;
+    }
+
+    .sidenav a {
+      text-decoration: none;
+      text-align: center;
+      color: $white;
+      margin-left: 2em;
+      float: left;
+      font-size: 20px;
+      display: block;
+    }
+    ul {
+      position: absolute;
+      display: block;
+      list-style: none;
+      right: 2em;
+      top: 1em;
+    }
+    a {
+      color: $white;
+      text-decoration: none;
+      position: relative;
+    }
+  }
+}
